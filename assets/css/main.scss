@@ -1,0 +1,282 @@
+/*
+COLORS: 
+
+Light Green: #7ed56f
+Meduim Green: #55c57a
+Dark Green: #28b485
+
+--default font 
+IBM Plex Sans
+--import font from google fonts
+
+
+
+*/
+@import url('./tailwind/tailwind.min.css');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+
+$priamry: #3c82f6;
+$deep-green: #103f29;
+$priamry-2: #58fab6;
+$priamry-pale: #bef1d3;
+$white: #fff;
+$black-01: #4f4f4f;
+$gray-01: #a9b3be;
+$yellow-pale: #f0f3bd;
+$input: #f3f6f9;
+
+$text-color: #121212;
+$form-control: #fafafa;
+//@include
+
+$new-pry-green: #227a4e;
+$sp_side: #123237;
+
+@mixin shadow {
+  box-shadow: 0px 5px 15px rgba(106, 127, 130, 0.09);
+}
+
+@mixin noscrollbar {
+  &::-webkit-scrollbar {
+    width: 1px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    box-shadow: none;
+    border-radius: 1px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 1px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+
+    //600px
+  }
+
+  @if $breakpoint==tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+
+    //900px
+  }
+
+  @if $breakpoint==tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+
+    //1200px
+  }
+
+  @if $breakpoint==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+
+    //1800
+  }
+}
+
+.font {
+  &-10 {
+    font-size: 1rem;
+  }
+
+  &-12 {
+    font-size: 1.4rem;
+  }
+
+
+  &-14 {
+    font-size: 1.6rem;
+  }
+
+  &-15 {
+    font-size: 1.9rem;
+  }
+
+  &-16 {
+    font-size: 2rem;
+  }
+
+  &-24 {
+    font-size: 2.5rem;
+  }
+}
+
+.text {
+  &-blue {
+    color: $priamry;
+  }
+  &--red{
+    color: red;
+  }
+}
+
+.button {
+  display: block;
+  min-width: 140px;
+  padding: .5rem 1.5rem;
+  background: $priamry;
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: .2rem;
+  outline: none !important;
+
+  &--bordered {
+    background: #fff;
+    border: 1px solid $priamry;
+    color: $priamry;
+
+  }
+
+  &--option {
+    width: 48%;
+    height: 50px !important;
+    margin: 1rem 0;
+  }
+
+  &--paginated {
+    width: auto;
+    min-width: auto;
+    padding: .5rem 1.2rem;
+    margin: .5rem;
+    transition: all 0.5s ease-in-out;
+    font-weight: bolder;
+    background: rgb(170, 170, 170);
+
+
+    &:hover {
+      transition: all 0.5s ease-in-out;
+      transform: translateY(.2rem);
+      @include shadow();
+    }
+
+    &__active {
+      background: $priamry;
+    }
+  }
+}
+
+
+//mixins
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  // background: #E5E5E5;
+  color: #777;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  border-bottom: 0.02rem solid rgb(214, 214, 214);
+
+
+  progress {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.container {
+  position: relative;
+  background: aliceblue;
+
+  // height: 500px !important;
+  .question {
+    margin: 5rem 10rem;
+  }
+}
+
+.form-group {
+  position: relative;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+
+  label {
+    margin: .8rem 0;
+    font-size: 1.2rem;
+    color: #000;
+  }
+
+
+  .with-password {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #000;
+
+  }
+
+  .form-control {
+    position: relative;
+    width: 100%;
+    padding: 1.2rem .8rem ;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    margin: .3rem 0;
+    font-size: 1.5rem;
+    color: #242424;
+
+    &:focus,
+    &:hover {
+      background: #fff;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  .form-textarea {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+    padding: 1.2rem .8rem ;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    margin: .3rem 0;
+    font-size: 1.5rem;
+    color: #242424;
+
+    &:focus,
+    &:hover {
+      background: #fff;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+
+
+}
